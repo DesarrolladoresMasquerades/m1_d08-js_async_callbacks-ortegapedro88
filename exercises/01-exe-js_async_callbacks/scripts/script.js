@@ -8,7 +8,7 @@ function print() {
   }
   
   print(); 
-  
+  // console ==>  1 3 2
   // ------------------------------------------------------------------------
   
   
@@ -17,4 +17,20 @@ function print() {
   // - For every number divisible by 5 it prints a BANG!!
   // - Forevery number divisible for 3 and 5 it prints BOOM BANG!! 
   
+  let counter = 0
   
+
+function blast(){
+  const myInterval = setInterval(() => {
+    counter += 1;
+    document.querySelector(".warning").innerText = counter
+    if(counter %3 === 0 && counter % 5 === 0) {document.querySelector(".warning").innerText = "BOOM BANG!!"}
+    if(counter %3 === 0 && counter %5 !== 0) {document.querySelector(".warning").innerText = "BOOM!!"}
+    if(counter %5 === 0 && counter %3 !== 0) {document.querySelector(".warning").innerText = "BANG!!"}
+    if(counter === 16) {stopCounter()}
+    
+  }, 1000);
+}
+const stopCounter = ()=> clearInterval(myInterval)
+
+blast()
